@@ -46,8 +46,9 @@ const Container = styled.div`
             text-align: center;
             margin: 1rem 0 ;
             img{
-                max-inline-size: 80%;
+                max-inline-size: 60%;
                 block-size: auto;
+                margin-right: 20px;
             }
         }
         ul{
