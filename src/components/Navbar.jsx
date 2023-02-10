@@ -4,7 +4,7 @@ import {FaSearch} from "react-icons/fa"
 import {CgProfile} from "react-icons/cg"
 import { useStateProvider } from '../utils/StateProvider'
 
-const Navbar = ( navBackground ) => {
+const Navbar = ( {navBackground} ) => {
   const [{ userInfo }] = useStateProvider();
   return (
     <Container navBackground={navBackground}>
