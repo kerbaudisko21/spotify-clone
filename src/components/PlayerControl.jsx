@@ -33,8 +33,9 @@ const PlayerControl = () => {
                 "Content-Type": "application/json",
                 Authorization: "Bearer " + token,
             }
-        }
+         }
         );
+        dispatch({ type: reducerCases.SET_PLAYER_STATE, playerState: true });
         const response1 = await axios.get("https://api.spotify.com/v1/me/player/currently-playing",{
             headers:
             {
@@ -45,10 +46,9 @@ const PlayerControl = () => {
         }
         );
         console.log(response);
-        dispatch({ type: reducerCases.SET_PLAYER_STATE, playerState: true });
         if(response1.data !== ""){
             const currentPlaying = {
-                id: response1.data.item.id,
+                id: response1.data.item.id, 
                 name: response1.data.item.name,
                 artists: response1.data.item.artists.map((artist) => artist.name),
                 image: response1.data.item.album.images[2].url,
@@ -65,7 +65,7 @@ const PlayerControl = () => {
         <BsShuffle />
       </div>
       <div className="previous">
-        <CgPlayTrackPrev onClick={()=> changeTrack("prev")} />
+        <CgPlayTrackPrev onClick={()=> changeTrack("previous")} />
       </div>
       <div className="state">
         {playerState ? (
